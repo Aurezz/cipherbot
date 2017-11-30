@@ -29,7 +29,7 @@ from contextlib import redirect_stdout
 
 bot = commands.Bot(command_prefix='c!', description="A multipurpose bot by Aurez and Free TNT#5796", owner_id=133867153890869248)
 
-@bot.command()
+@bot.event
 async def on_ready():
   print("We have logged in as {0.User}".format(bot))
   guilds = len(bot.guilds)
