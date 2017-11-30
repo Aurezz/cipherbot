@@ -37,6 +37,11 @@ def cleanup_code(content):
 
     return content.strip('` \n')
 
+developers = [
+    292690616285134850,
+    133867153890869248
+]
+
 
 @bot.command()
 async def ping(ctx):
@@ -52,11 +57,11 @@ async def invite(ctx):
     await ctx.send("Invite Link Coming Soon...")
     
 @bot.command(pass_context=True, hidden=True, name='eval')
-@commands.is_owner()
 async def _eval(ctx, *, body: str):
         """Evaluates a code"""
-
-        env = {
+    if ctx.author.id not in developers: return
+        
+    env = {
             'bot': bot,
             'ctx': ctx,
             'channel': ctx.channel,
