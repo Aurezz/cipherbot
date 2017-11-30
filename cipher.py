@@ -31,7 +31,7 @@ bot = commands.Bot(command_prefix='c!', description="A multipurpose bot by Aurez
 
 @bot.event
 async def on_ready():
-  print("We have logged in as {0.User}".format(bot))
+  print("We have logged in as {0.User}".format(client))
   guilds = len(bot.guilds)
   print(guilds)
 
