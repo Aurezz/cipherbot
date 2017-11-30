@@ -60,7 +60,7 @@ async def invite(ctx):
 async def _eval(ctx, *, body: str):
         """Evaluates a code"""
     if ctx.author.id not in developers:
-        return
+        pass
         
     env = {
             'bot': bot,
