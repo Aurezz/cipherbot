@@ -98,4 +98,4 @@ async def _eval(ctx, *, body: str):
                 await ctx.send(f'```py\n{value}{ret}\n```')
 
 
-bot.run(os.environ.get("TOKEN"))
+cipher.run(os.environ.get("TOKEN"))
