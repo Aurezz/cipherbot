@@ -27,7 +27,7 @@ import traceback
 import textwrap
 from contextlib import redirect_stdout
 
-bot = commands.Bot(command_prefix='+', description="A multipurpose bot by Free TNT#5796", owner_id=292690616285134850)
+cipher = commands.Bot(command_prefix='c!', description="A multipurpose bot by Aurez and Free TNT#5796", owner_id=133867153890869248)
 
 def cleanup_code(content):
     """Automatically removes code blocks from the code."""
@@ -38,20 +38,20 @@ def cleanup_code(content):
     return content.strip('` \n')
 
 
-@bot.command()
+@cipher.command()
 async def ping(ctx):
     await ctx.send("Pong!")
     
-@bot.command()
+@cipher.command()
 async def say(ctx, *, word: str):
     await ctx.send(word)
     await ctx.message.delete()
     
-@bot.command()
+@cipher.command()
 async def invite(ctx):
     await ctx.send("Invite Link Coming Soon...")
     
-@bot.command(pass_context=True, hidden=True, name='eval')
+@cipher.command(pass_context=True, hidden=True, name='eval')
 @commands.is_owner()
 async def _eval(ctx, *, body: str):
         """Evaluates a code"""
