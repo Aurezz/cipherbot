@@ -88,7 +88,7 @@ async def invite(ctx):
 @bot.command(pass_context=True, hidden=True, name='eval')
 async def _eval(ctx, *, body: str):
         """Evaluates a code"""
-        if ctx.author.id not in bot.developers: return
+        if ctx.author.id not in bot.devs: return
         
         env = {
                 'bot': bot,
