@@ -71,8 +71,10 @@ async def ping(ctx):
   await ctx.send(embed=embd)
     
 @bot.command()
-async def say(ctx, *, word: str):
-  await ctx.send(word)
+async def embedsay(ctx, *, words: str):
+  embd = discord.Embed(color=discord.Color(value=0x0086b3))
+  embd.description = words
+  await ctx.send(embed=embd)
   await ctx.message.delete()
     
 @bot.command()
