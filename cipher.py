@@ -27,9 +27,13 @@ import traceback
 import textwrap
 from contextlib import redirect_stdout
 
-bot = commands.Bot(command_prefix='c!', description="A multipurpose bot by Aurez and Free TNT#5796", owner_id=133867153890869248)
+bot = commands.Bot(command_prefix='c!', description="A multipurpose bot by Aurez and Free TNT#5796")
 bot.remove_command("help")
 
+devs = [
+    133867153890869248,
+    292690616285134850
+]
 
 @bot.event
 async def on_ready():
@@ -82,10 +86,11 @@ async def invite(ctx):
   await ctx.send("Invite Link Coming Soon...")
     
 @bot.command(pass_context=True, hidden=True, name='eval')
-@commands.is_owner()
 async def _eval(ctx, *, body: str):
         """Evaluates a code"""
-
+        if ctx.author.id not in developers:
+            return
+        
         env = {
             'bot': bot,
             'ctx': ctx,
