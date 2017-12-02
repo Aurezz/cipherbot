@@ -49,16 +49,16 @@ async def ping(ctx):
   embd = discord.Embed(color=discord.Color(value=0x0086b3))
   embd.title = "Ping"
   embd.description = "Pong!"
-    await ctx.send(embed=embd)
+  await ctx.send(embed=embd)
     
 @bot.command()
 async def say(ctx, *, word: str):
-    await ctx.send(word)
-    await ctx.message.delete()
+  await ctx.send(word)
+  await ctx.message.delete()
     
 @bot.command()
 async def invite(ctx):
-    await ctx.send("Invite Link Coming Soon...")
+  await ctx.send("Invite Link Coming Soon...")
     
 @bot.command(pass_context=True, hidden=True, name='eval')
 @commands.is_owner()
