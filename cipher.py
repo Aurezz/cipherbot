@@ -46,7 +46,10 @@ def cleanup_code(content):
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send("Pong!")
+  embd = discord.Embed(color=discord.Color(value=0x0086b3))
+  embd.title = "Ping"
+  embd.description = "Pong!"
+    await ctx.send(embed=embd)
     
 @bot.command()
 async def say(ctx, *, word: str):
