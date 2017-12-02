@@ -51,6 +51,7 @@ def cleanup_code(content):
 @bot.command()
 async def help(ctx):
   embd = discord.Embed(color=discord.Color(value=0x0086b3))
+  embd.title = "Cipher Commands: "
   embd.description = "A discord bot being made with love! Join support server [here](https://discord.gg/N25KSSY)"
   embd.add_field(name="Bot: ", value=f"`c!invite | Invite Cipher to your server!.`\n"
                                     f"`c!ping | Pong!`\n"
