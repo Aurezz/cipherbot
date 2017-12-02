@@ -28,6 +28,8 @@ import textwrap
 from contextlib import redirect_stdout
 
 bot = commands.Bot(command_prefix='c!', description="A multipurpose bot by Aurez and Free TNT#5796", owner_id=133867153890869248)
+bot.remove_command("help")
+
 
 @bot.event
 async def on_ready():
@@ -42,6 +44,22 @@ def cleanup_code(content):
         return '\n'.join(content.split('\n')[1:-1])
 
     return content.strip('` \n')
+  
+  
+  
+  
+@bot.command()
+async def help(ctx):
+  embd = discord.Embed(color=discord.Color(value=0x0086b3))
+  embd.description = "A discord bot being made with love! Join support server [here](https://discord.gg/N25KSSY)"
+  embd.add_field(name="Bot: ", value=f"`c!invite | Invite Cipher to your server!.`\n"
+                                    f"`c!ping | Pong!`\n"
+                                    f"`c!embedsay` | Bot repeats message in embed form!\n")
+  embd.set_footer(text="CipherBot Commands!")
+  embd.set_thumbnail(url="https://cdn.discordapp.com/embed/avatars/1.png") 
+  await ctx.send(embed=embd)                                   
+                                    
+  
 
 
 @bot.command()
