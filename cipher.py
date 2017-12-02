@@ -88,16 +88,15 @@ async def invite(ctx):
 @bot.command(pass_context=True, hidden=True, name='eval')
 async def _eval(ctx, *, body: str):
         """Evaluates a code"""
-        if ctx.author.id not in developers:
-            return
+        if ctx.author.id not in bot.developers: return
         
         env = {
-            'bot': bot,
-            'ctx': ctx,
-            'channel': ctx.channel,
-            'author': ctx.author,
-            'guild': ctx.guild,
-            'message': ctx.message,
+                'bot': bot,
+                'ctx': ctx,
+                'channel': ctx.channel,
+                'author': ctx.author,
+                'guild': ctx.guild,
+                'message': ctx.message,
         }
 
         env.update(globals())
