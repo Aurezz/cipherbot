@@ -59,7 +59,7 @@ async def help(ctx):
   embd.description = "A discord bot being made with love! Join support server [here](https://discord.gg/N25KSSY)"
   embd.add_field(name="Bot: ", value=f"`c!invite | Invite Cipher to your server!.`\n"
                                     f"`c!ping | Pong!`\n"
-                                    f"`c!embedsay` | Bot repeats message in embed form!`\n")
+                                    f"`c!embedsay | Bot repeats message in embed form!`\n")
   embd.set_footer(text="CipherBot Commands!")
   embd.set_thumbnail(url="https://cdn.discordapp.com/embed/avatars/1.png") 
   await ctx.send(embed=embd)                                   
