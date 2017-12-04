@@ -61,7 +61,8 @@ async def help(ctx):
                                     f"`c!ping | Pong!`\n"
                                     f"`c!embedsay | Bot repeats message in embed form!`")
   embd.add_field(name="Mod: ", value=f"`c!kick | Kick user outta server`\n"
-                                     f"`c!ban | Ban user from the server`")
+                                     f"`c!ban | Ban user from the server`\n")
+                                     f"`c!warn | Warn user`")
   embd.set_footer(text="CipherBot Commands!")
   embd.set_thumbnail(url="https://cdn.discordapp.com/embed/avatars/1.png") 
   await ctx.send(embed=embd)                                   
@@ -98,6 +99,12 @@ async def ban(ctx, user: discord.Member):
         await ctx.send(f"I have banned **{user}** from the server!")
     except discord.Forbidden:
         await ctx.send("Either **me** or **you** do not have enough permissions to ban user!")
+    
+
+@bot.command()
+async def warn(ctx, user: discord.Member, *, reason: str):
+warning = f"You've been warned in **{ctx.author.guild}** by **{ctx.message.author}** for {reason}"
+    await ctx.send(warning)
     
     
   
