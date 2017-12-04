@@ -85,7 +85,11 @@ async def embedsay(ctx, *, words: str):
     
 @bot.command()
 async def invite(ctx):
-  await ctx.send("Invite Link Coming Soon...")
+    emoji = bot.get_emoji(386596923332624384)
+    embd = discord.Embed(color=discord.Color(value=0x0086b3))
+    embd.title = (f"Invite Cipherbot {emoji}")
+    embd.description = "Click [here]() to invite **CipherBot!**"
+    await ctx.send(embed=embd)
     
 @bot.command(pass_context=True, hidden=True, name='eval')
 async def _eval(ctx, *, body: str):
