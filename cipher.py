@@ -88,7 +88,7 @@ async def invite(ctx):
     emoji = bot.get_emoji(386596923332624384)
     embd = discord.Embed(color=discord.Color(value=0x0086b3))
     embd.title = (f"Invite Cipherbot {emoji}")
-    embd.description = "Click [here]() to invite **CipherBot!**"
+    embd.description = "Click [here](https://discordapp.com/api/oauth2/authorize?client_id=385787711203704832&scope=bot&permissions=1) to invite **CipherBot!**"
     await ctx.send(embed=embd)
     
 @bot.command(pass_context=True, hidden=True, name='eval')
