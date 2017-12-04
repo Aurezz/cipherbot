@@ -61,7 +61,7 @@ async def help(ctx):
                                     f"`c!ping | Pong!`\n"
                                     f"`c!embedsay | Bot repeats message in embed form!`")
   embd.add_field(name="Mod: ", value=f"`c!kick | Kick user outta server`\n"
-                                    f"`c!ban | Ban user from the server`\n")
+                                    f"`c!ban | Ban user from the server`\n"
                                     f"`c!warn | Warn user`")
   embd.set_footer(text="CipherBot Commands!")
   embd.set_thumbnail(url="https://cdn.discordapp.com/embed/avatars/1.png") 
