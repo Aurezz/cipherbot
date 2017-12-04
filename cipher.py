@@ -87,7 +87,7 @@ async def kick(ctx, user: discord.Member):
         await user.kick()
         await ctx.send(f"I have kicked **{user}** out of the server!")
     except discord.Forbidden:
-        await ctx.send("Either me or you do not have enough permissions to kick user!")
+        await ctx.send("Either **me** or **you** do not have enough permissions to kick user!")
     
     
 @bot.command()
@@ -97,7 +97,7 @@ async def ban(ctx, user: discord.Member):
         await user.ban()
         await ctx.send(f"I have banned **{user}** from the server!")
     except discord.Forbidden:
-        await ctx.send("Either me or you do not have enough permissions to ban user!")
+        await ctx.send("Either **me** or **you** do not have enough permissions to ban user!")
     
     
   
