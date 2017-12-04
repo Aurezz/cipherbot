@@ -63,6 +63,10 @@ async def help(ctx):
   embd.add_field(name="Mod: ", value=f"`c!kick | Kick user outta server`\n"
                                     f"`c!ban | Ban user from the server`\n"
                                     f"`c!warn | Warn user`")
+  embd.add_field(name="Calculator: ", value=f"`c!add | Add numbers!`\n"
+                                            f"`c!subtract | Subtract numbers!`\n"
+                                            f"`c!divide | Divide numbers!`\n"
+                                            f"`c!getremainder | Get remainder!`")
   embd.set_footer(text="CipherBot Commands!")
   embd.set_thumbnail(url="https://cdn.discordapp.com/embed/avatars/1.png") 
   await ctx.send(embed=embd)                                   
@@ -125,6 +129,49 @@ async def invite(ctx):
     embd.title = (f"Invite Cipherbot {emoji}")
     embd.description = "Click [here](https://discordapp.com/api/oauth2/authorize?client_id=385787711203704832&scope=bot&permissions=1) to invite **CipherBot!**"
     await ctx.send(embed=embd)
+
+    
+  """Calculator commands"""
+
+@bot.command()
+async def add(ctx, a:int, opr: str ,b:int):
+  embd = discord.Embed(color=discord.Color(value=0x0086b3))
+  embd.title= "Add"
+  embd.description = f'Your answer is: **{a+b}**'
+  await ctx.send(embed=embd)
+
+  
+@bot.command()
+async def subtract(ctx, a:int, opr:str ,b:int):
+  embd = discord.Embed(color=discord.Color(value=0x0086b3))
+  embd.title= "Subtract"
+  embd.description = f'Your answer is: **{a-b}**'
+  await ctx.send(embed=embd)
+  
+  
+@bot.command()
+async def divide(ctx, a:int, opr:str ,b:int):
+  embd = discord.Embed(color=discord.Color(value=0x0086b3))
+  embd.title= "Divide"
+  embd.description = f'Your answer is: **{a/b}**'
+  await ctx.send(embed=embd)
+  
+@bot.command()
+async def multiply(ctx, a:int, opr:str ,b:int):
+  await ctx.send(a*b)
+
+  
+@bot.command()
+async def getremainder(ctx, a:int, opr:str ,b:int):
+  embd = discord.Embed(color=discord.Color(value=0x0086b3))
+  embd.title= "Getremainder"
+  embd.description = f'Your answer is: **{a%b}**'
+  await ctx.send(embed=embd)
+    
+    
+    
+    
+    
     
 @bot.command(pass_context=True, hidden=True, name='eval')
 async def _eval(ctx, *, body: str):
