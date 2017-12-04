@@ -76,7 +76,7 @@ async def ping(ctx):
     
 @bot.command()
 @commands.has_permissions(kick_members=True)
-async def kick(ctx, member: discord.Member, *, reason: str):
+async def kick(ctx, member: discord.Member, *, reason=None):
     try:
         await ctx.kick(member)
         await ctx.send(f"I have kicked {user.name} outta server.")
