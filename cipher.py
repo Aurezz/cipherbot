@@ -74,14 +74,6 @@ async def ping(ctx):
   embd.description = "Pong!"
   await ctx.send(embed=embd)
     
-@bot.command()
-@commands.has_permissions(kick_members=True)
-async def kick(ctx, member: discord.Member, *, reason=None):
-    try:
-        await ctx.kick(member)
-        await ctx.send(f"I have kicked {user.name} outta server.")
-    except discord.Forbidden:
-        await ctx.send("You do not have enugh permissions to kick users.")    
 
     
 @bot.command()
