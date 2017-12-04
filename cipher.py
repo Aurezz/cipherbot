@@ -105,6 +105,7 @@ async def ban(ctx, user: discord.Member):
 async def warn(ctx, user: discord.Member, *, reason: str):
     warning = f"You've been warned in **{ctx.author.guild}** by **{ctx.message.author}**\n**Reason:** {reason}"
     await user.send(warning)
+    await ctx.send("**{user}** has been warned")
     
     
   
