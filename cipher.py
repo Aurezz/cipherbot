@@ -103,7 +103,7 @@ async def ban(ctx, user: discord.Member):
 
 @bot.command()
 async def warn(ctx, user: discord.Member, *, reason: str):
-warning = f"You've been warned in **{ctx.author.guild}** by **{ctx.message.author}** for {reason}"
+    warning = f"You've been warned in **{ctx.author.guild}** by **{ctx.message.author}** for {reason}"
     await ctx.send(warning)
     
     
@@ -111,10 +111,10 @@ warning = f"You've been warned in **{ctx.author.guild}** by **{ctx.message.autho
     
 @bot.command()
 async def embedsay(ctx, *, words: str):
-  embd = discord.Embed(color=discord.Color(value=0x0086b3))
-  embd.description = words
-  await ctx.send(embed=embd)
-  await ctx.message.delete()
+    embd = discord.Embed(color=discord.Color(value=0x0086b3))
+    embd.description = words
+    await ctx.send(embed=embd)
+    await ctx.message.delete()
     
 @bot.command()
 async def invite(ctx):
