@@ -75,7 +75,7 @@ async def ping(ctx):
   await ctx.send(embed=embd)
     
 @bot.command()
-@bot.has_permissions(kick_members=True)
+@commands.has_permissions(kick_members=True)
 async def kick(ctx, member: discord.Member, *, reason: str):
     try:
         await ctx.kick(member)
