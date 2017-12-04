@@ -85,14 +85,22 @@ async def ping(ctx):
 async def kick(ctx, user: discord.Member):
     try:
         await user.kick()
-        await ctx.send(f"I have kicked {user} out of the server")
+        await ctx.send(f"I have kicked **{user}** out of the server!")
     except discord.Forbidden:
-        await ctx.send("I do not have enough permissions to kick user")
+        await ctx.send("Either me or you do not have enough permissions to kick user!")
     
     
+@bot.command()
+@commands.has_permissions(ban_members = True)
+async def ban(ctx, user: discord.Member):
+    try:
+        await user.ban()
+        await ctx.send(f"I have banned **{user}** from the server!")
+    except discord.Forbidden:
+        await ctx.send("Either me or you do not have enough permissions to ban user!")
     
     
-    
+  
     
 @bot.command()
 async def embedsay(ctx, *, words: str):
