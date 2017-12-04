@@ -131,7 +131,7 @@ async def invite(ctx):
     await ctx.send(embed=embd)
 
     
-  """Calculator commands"""
+"""Calculator commands"""
 
 @bot.command()
 async def add(ctx, a:int, opr: str ,b:int):
