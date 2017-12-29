@@ -27,6 +27,7 @@ import traceback
 import textwrap
 from contextlib import redirect_stdout
 import inspect
+import aiohttp
 
 bot = commands.Bot(command_prefix='c!', description="A multipurpose bot by Aurez and Free TNT#5796")
 bot.remove_command("help")
@@ -41,6 +42,7 @@ devs = [
 async def on_ready():
   print("Bot is on.")
   bot._last_result = None
+  bot.session = aiohttp.ClientSession()
   guilds = len(bot.guilds)
   print(guilds)
 
