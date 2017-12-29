@@ -223,7 +223,7 @@ async def _eval(ctx, *, body: str):
                     await ctx.send(f'```py\n{value}\n```')
             else:
                 bot._last_result = ret
-                await ctx.send(f'```py\n{value}{ret}\n```')
+                out = await ctx.send(f'```py\n{value}{ret}\n```')
 
 
 bot.run(os.environ.get("TOKEN"))
