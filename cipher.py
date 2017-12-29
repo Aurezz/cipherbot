@@ -26,6 +26,7 @@ from discord.ext import commands
 import traceback
 import textwrap
 from contextlib import redirect_stdout
+import inspect
 
 bot = commands.Bot(command_prefix='c!', description="A multipurpose bot by Aurez and Free TNT#5796")
 bot.remove_command("help")
