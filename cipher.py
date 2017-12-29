@@ -194,13 +194,15 @@ async def _eval(ctx, *, body: str):
 
         body = cleanup_code(body)
         stdout = io.StringIO()
+        err = out = None
 
         to_compile = f'async def func():\n{textwrap.indent(body, "  ")}'
 
         try:
             exec(to_compile, env)
         except Exception as e:
-            return await ctx.send(f'```py\n{e.__class__.__name__}: {e}\n```')
+            err = return await ctx.send(f'```py\n{e.__class__.__name__}: {e}\n```')
+            return await ctx.message.add_reaction('\u2049')
 
         func = env['func']
         try:
@@ -208,7 +210,7 @@ async def _eval(ctx, *, body: str):
                 ret = await func()
         except Exception as e:
             value = stdout.getvalue()
-            await ctx.send(f'```py\n{value}{traceback.format_exc()}\n```')
+            err = await ctx.send(f'```py\n{value}{traceback.format_exc()}\n```')
         else:
             value = stdout.getvalue()
             try:
