@@ -38,6 +38,7 @@ devs = [
 @bot.event
 async def on_ready():
   print("Bot is on.")
+  bot._last_result = None
   guilds = len(bot.guilds)
   print(guilds)
 
@@ -184,6 +185,7 @@ async def _eval(ctx, *, body: str):
                 'channel': ctx.channel,
                 'author': ctx.author,
                 'guild': ctx.guild,
+                '_': bot._last_result,
                 'message': ctx.message,
         }
 
@@ -191,6 +193,7 @@ async def _eval(ctx, *, body: str):
 
         body = cleanup_code(body)
         stdout = io.StringIO()
+        err = out = None
 
         to_compile = f'async def func():\n{textwrap.indent(body, "  ")}'
 
@@ -217,6 +220,7 @@ async def _eval(ctx, *, body: str):
                 if value:
                     await ctx.send(f'```py\n{value}\n```')
             else:
+                bot._last_result = ret
                 await ctx.send(f'```py\n{value}{ret}\n```')
 
 
