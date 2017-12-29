@@ -186,15 +186,14 @@ async def _eval(ctx, *, body: str):
                 'channel': ctx.channel,
                 'author': ctx.author,
                 'guild': ctx.guild,
-                '_': bot._last_result,
                 'message': ctx.message,
+                '_': bot._last_result
         }
 
         env.update(globals())
 
         body = cleanup_code(body)
         stdout = io.StringIO()
-        err = out = None
 
         to_compile = f'async def func():\n{textwrap.indent(body, "  ")}'
 
